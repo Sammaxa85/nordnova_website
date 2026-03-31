@@ -1,0 +1,69 @@
+# ══════════════════════════════════════════════════════════════
+# NORDNOVA — Tjänster (Svenska)
+# ══════════════════════════════════════════════════════════════
+
+- title: "Arkitekturdesign"
+  category: "Arkitektur"
+  short: "Arkitektonisk design för bostäder och handel — från idé till bygglov."
+  description: >
+    Vi erbjuder kompletta arkitekttjänster för enfamiljshus, tillbyggnader,
+    renoveringar och mindre handelslokaler. Vår process tar dig från första
+    skiss till färdig bygglovshandling — och säkerställer att varje ritning
+    uppfyller Plan- och bygglagen (PBL) samt kommunens krav.
+  features:
+    - Konceptdesign och förstudie
+    - Bygglovsansökan
+    - Tekniska handlingar och projektering
+    - Samordning med myndigheter
+    - 3D-visualiseringar och renderingar
+  image: ""
+
+- title: "Inredningsdesign"
+  category: "Inredning"
+  short: "Genomtänkta interiörer med nordisk estetik och funktion i fokus."
+  description: >
+    Med erfarenhet från IKEA och en djup förståelse för skandinaviska
+    rumsprinciper designar vi interiörer som är vackra och verkligt
+    beboeliga. Vi arbetar med bostadskunder, butiker och mindre kontor
+    — och skapar miljöer där varje detalj fyller en funktion.
+  features:
+    - Rumsplanering och konceptutveckling
+    - Material- och ytval
+    - Möbel- och belysningsdesign
+    - 3D-visualiseringar och stämningsbilder
+    - Projektledning under inredningsarbete
+  image: ""
+
+- title: "Konstruktionsteknik"
+  category: "Ingenjörskonst"
+  short: "Konstruktionsanalys och ritningar för säkert och effektivt byggande."
+  description: >
+    Med en kandidatexamen i byggingenjörsvetenskap och praktisk
+    erfarenhet från industriprojekt i Malaysia och Sudan levererar vi
+    konstruktionsanalys och bygghandlingar för bostäder och lättare
+    kommersiella byggnader. Våra beräkningar följer Eurokod och svenska
+    nationella bilagor.
+  features:
+    - Konstruktionsanalys och lastberäkningar (Eurokod)
+    - Grundläggningsprojektering
+    - Konstruktionsritningar för entreprenörer
+    - Granskning av befintliga konstruktioner
+    - Samarbete med arkitekter och entreprenörer
+  image: ""
+
+- title: "Global Materialanskaffning"
+  category: "Handel & Agentur"
+  short: "Vi förbinder europeiska och mellanösternkunder med asiatiska tillverkare av stål och byggmaterial."
+  description: >
+    NORDNOVA fungerar som en betrodd mellanhand mellan producenter och
+    tillverkare av stålprodukter och byggmaterial i Asien, och kunder i
+    Europa och Mellanöstern — och vice versa. Vi identifierar pålitliga
+    leverantörer, förhandlar villkor, samordnar logistik och säkerställer
+    kvalitetsefterlevnad i hela försörjningskedjan.
+  features:
+    - Leverantörsidentifiering och -granskning i Asien
+    - Kontraktsförhandling och due diligence
+    - Kvalitetssäkring och inspektionssamordning
+    - Logistik- och tullstöd
+    - Löpande leverantörsrelationshantering
+  image: ""

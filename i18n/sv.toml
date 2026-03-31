@@ -1,0 +1,38 @@
+[hero_cta]
+other = "Utforska våra tjänster"
+[hero_secondary_cta]
+other = "Kontakta oss"
+[read_more]
+other = "Läs mer"
+[view_all_projects]
+other = "Se alla projekt"
+[our_services]
+other = "Våra tjänster"
+[our_projects]
+other = "Våra projekt"
+[get_in_touch]
+other = "Kontakta oss"
+[footer_tagline]
+other = "Arkitektur · Ingenjörskonst · Inredning"
+[footer_rights]
+other = "Alla rättigheter förbehållna"
+[close_menu]
+other = "✕ Stäng"
+[name_label]
+other = "Namn"
+[email_label]
+other = "E-post"
+[message_label]
+other = "Meddelande"
+[submit_label]
+other = "Skicka meddelande"
+[office_label]
+other = "Kontor"
+[hultsfred]
+other = "Hultsfred, Sverige"
+[coming_soon]
+other = "Kommer snart"
+[projects_empty_title]
+other = "Portfölj under uppbyggnad"
+[projects_empty_text]
+other = "Projekt läggs till här snart. Kontakta oss gärna under tiden för att diskutera ditt uppdrag."

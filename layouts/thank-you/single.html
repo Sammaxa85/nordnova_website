@@ -1,0 +1,17 @@
+{{ define "main" }}
+{{ $isSv := eq .Site.Language.Lang "sv" }}
+<section class="page-hero" style="min-height:65vh;display:flex;align-items:center;">
+  <div class="container" style="text-align:center;">
+    <p class="eyebrow mb-sm anim-up">NORDNOVA</p>
+    <h1 class="page-hero__title anim-up d1">
+      {{ if $isSv }}Tack för ditt meddelande{{ else }}Thank you for your message{{ end }}
+    </h1>
+    <p class="page-hero__sub anim-up d2" style="max-width:46ch;margin-inline:auto;margin-block-start:1rem;">
+      {{ if $isSv }}Vi återkommer till dig så snart som möjligt.{{ else }}We'll get back to you as soon as possible.{{ end }}
+    </p>
+    <a href="{{ "/" | relLangURL }}" class="btn btn--primary anim-up d3" style="margin-block-start:2.5rem;">
+      {{ if $isSv }}Tillbaka till startsidan{{ else }}Back to home{{ end }}
+    </a>
+  </div>
+</section>
+{{ end }}

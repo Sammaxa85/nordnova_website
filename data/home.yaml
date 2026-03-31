@@ -1,0 +1,8 @@
+# ══════════════════════════════════════════════════
+# Home page settings
+# ══════════════════════════════════════════════════
+# hero_image: path to your hero photo in static/images/
+#   e.g. /images/hero.jpg
+#   Leave as "" for dark background only
+# ══════════════════════════════════════════════════
+hero_image: "/images/hero.jpg"

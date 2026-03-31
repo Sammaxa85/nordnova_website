@@ -1,0 +1,38 @@
+[hero_cta]
+other = "Explore Our Services"
+[hero_secondary_cta]
+other = "Get in Touch"
+[read_more]
+other = "Learn more"
+[view_all_projects]
+other = "View all projects"
+[our_services]
+other = "Our Services"
+[our_projects]
+other = "Our Projects"
+[get_in_touch]
+other = "Get in Touch"
+[footer_tagline]
+other = "Architecture · Engineering · Interior Design"
+[footer_rights]
+other = "All rights reserved"
+[close_menu]
+other = "✕ Close"
+[name_label]
+other = "Name"
+[email_label]
+other = "Email"
+[message_label]
+other = "Message"
+[submit_label]
+other = "Send Message"
+[office_label]
+other = "Office"
+[hultsfred]
+other = "Hultsfred, Sweden"
+[coming_soon]
+other = "Coming soon"
+[projects_empty_title]
+other = "Portfolio in progress"
+[projects_empty_text]
+other = "Projects will be added here soon. In the meantime, get in touch to discuss your commission."

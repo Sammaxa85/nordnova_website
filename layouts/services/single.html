@@ -1,0 +1,58 @@
+{{ define "main" }}
+{{ $isSv := eq .Site.Language.Lang "sv" }}
+
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow anim-up">NORDNOVA</p>
+    <h1 class="page-hero__title anim-up d1">{{ .Title }}</h1>
+    {{ with .Params.subtitle }}<p class="page-hero__sub anim-up d2">{{ . }}</p>{{ end }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {{ $key := printf "services_%s" .Site.Language.Lang }}
+    {{ range $i, $s := (index .Site.Data $key) }}
+    <div class="svc-row">
+
+      {{/* Text side */}}
+      <div {{ if eq (mod $i 2) 1 }}style="order:2;"{{ end }}>
+        <div class="svc-row__num">0{{ add $i 1 }}</div>
+        <div class="svc-row__cat">{{ $s.category }}</div>
+        <h2 class="svc-row__title">{{ $s.title }}</h2>
+        <span class="divider"></span>
+        <p class="svc-row__desc">{{ $s.description }}</p>
+        {{ with $s.features }}
+        <ul class="svc-row__features">
+          {{ range . }}<li class="svc-row__feat">{{ . }}</li>{{ end }}
+        </ul>
+        {{ end }}
+      </div>
+
+      {{/* Visual side */}}
+      <div class="svc-row__visual" {{ if eq (mod $i 2) 1 }}style="order:1;"{{ end }}>
+        {{ with $s.image }}
+        <img src="{{ . }}" alt="{{ $s.title }}" loading="lazy">
+        {{ else }}
+        <span class="svc-row__visual-placeholder">+ {{ if $isSv }}Lägg till bild{{ else }}Add image{{ end }}</span>
+        {{ end }}
+      </div>
+
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="container">
+    <p class="eyebrow" style="justify-content:center;">
+      {{ if $isSv }}Har du ett projekt i åtanke?{{ else }}Have a project in mind?{{ end }}
+    </p>
+    <h2>{{ if $isSv }}Kontakta oss idag{{ else }}Get in touch today{{ end }}</h2>
+    <span class="divider divider--center"></span>
+    <p></p>
+    <a href="{{ "/contact/" | relLangURL }}" class="btn btn--primary">{{ i18n "get_in_touch" }}</a>
+  </div>
+</div>
+
+{{ end }}

@@ -1,0 +1,108 @@
+{{ define "main" }}
+{{ $isSv := eq .Site.Language.Lang "sv" }}
+
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow anim-up">NORDNOVA</p>
+    <h1 class="page-hero__title anim-up d1">{{ .Title }}</h1>
+    {{ with .Params.subtitle }}<p class="page-hero__sub anim-up d2">{{ . }}</p>{{ end }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+
+      {{/* Left — contact details */}}
+      <div>
+        <p class="eyebrow mb-sm">{{ if $isSv }}Kontaktuppgifter{{ else }}Contact details{{ end }}</p>
+        <h2 style="margin-block-end:1rem;">
+          {{ if $isSv }}Vi hör gärna från dig{{ else }}We'd love to hear from you{{ end }}
+        </h2>
+        <span class="divider"></span>
+        <p style="color:var(--text-muted);font-size:0.85rem;margin-block-end:2.5rem;line-height:1.9;">
+          {{ if $isSv }}
+            Kontakta oss för frågor om arkitekturprojekt, ingenjörstjänster, inredningsdesign eller internationella affärsmöjligheter.
+          {{ else }}
+            Reach out for inquiries about architectural projects, engineering services, interior design, or international trade opportunities.
+          {{ end }}
+        </p>
+
+        {{/* Sam */}}
+        <div class="contact-person">
+          <div class="contact-label">Sam Abrahamsson</div>
+          <div style="font-family:var(--font-brand);font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text);margin-block-end:1rem;">
+            {{ if $isSv }}Grundare · Arkitekt &amp; Ingenjör{{ else }}Founder · Architect &amp; Engineer{{ end }}
+          </div>
+          <div class="contact-item">
+            <div class="contact-label">{{ if $isSv }}E-post{{ else }}Email{{ end }}</div>
+            <div class="contact-value"><a href="mailto:{{ .Site.Params.email_sam }}">{{ .Site.Params.email_sam }}</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-label">{{ if $isSv }}Telefon{{ else }}Phone{{ end }}</div>
+            <div class="contact-value"><a href="tel:{{ .Site.Params.phone_sam }}">{{ .Site.Params.phone_sam }}</a></div>
+          </div>
+        </div>
+
+        {{/* Khaled */}}
+        <div class="contact-person">
+          <div class="contact-label">Khaled</div>
+          <div style="font-family:var(--font-brand);font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text);margin-block-end:1rem;">
+            {{ if $isSv }}Medgrundare · Affärsutveckling{{ else }}Co-Founder · Business Development{{ end }}
+          </div>
+          <div class="contact-item">
+            <div class="contact-label">{{ if $isSv }}E-post{{ else }}Email{{ end }}</div>
+            <div class="contact-value"><a href="mailto:{{ .Site.Params.email_khaled }}">{{ .Site.Params.email_khaled }}</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-label">{{ if $isSv }}Telefon{{ else }}Phone{{ end }}</div>
+            <div class="contact-value"><a href="tel:{{ .Site.Params.phone_khaled }}">{{ .Site.Params.phone_khaled }}</a></div>
+          </div>
+        </div>
+
+        {{/* Office */}}
+        <div class="contact-item">
+          <div class="contact-label">{{ i18n "office_label" }}</div>
+          <div class="contact-value">{{ i18n "hultsfred" }}</div>
+        </div>
+
+      </div>
+
+      {{/* Right — form */}}
+      <div>
+        <p class="eyebrow mb-sm">{{ if $isSv }}Skriv till oss{{ else }}Send a message{{ end }}</p>
+        <h2 style="margin-block-end:2rem;">
+          {{ if $isSv }}Berätta om ditt projekt{{ else }}Tell us about your project{{ end }}
+        </h2>
+        <form class="contact-form" method="POST" action="{{ "/thank-you/" | relLangURL }}" data-static-form-name="contact">
+          <div class="form-field">
+            <label for="name">{{ i18n "name_label" }}</label>
+            <input type="text" id="name" name="name" required autocomplete="name"
+              placeholder="{{ if $isSv }}Ditt namn{{ else }}Your name{{ end }}">
+          </div>
+          <div class="form-field">
+            <label for="email">{{ i18n "email_label" }}</label>
+            <input type="email" id="email" name="email" required autocomplete="email"
+              placeholder="{{ if $isSv }}din@epost.se{{ else }}your@email.com{{ end }}">
+          </div>
+          <div class="form-field">
+            <label for="subject">{{ if $isSv }}Ämne{{ else }}Subject{{ end }}</label>
+            <input type="text" id="subject" name="subject"
+              placeholder="{{ if $isSv }}Vad gäller det?{{ else }}What's this about?{{ end }}">
+          </div>
+          <div class="form-field">
+            <label for="message">{{ i18n "message_label" }}</label>
+            <textarea id="message" name="message" required
+              placeholder="{{ if $isSv }}Berätta om ditt projekt…{{ else }}Tell us about your project…{{ end }}"></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;">
+            {{ i18n "submit_label" }}
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{{ end }}

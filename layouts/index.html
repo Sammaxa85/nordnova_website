@@ -1,0 +1,163 @@
+{{ define "main" }}
+{{ $isSv := eq .Site.Language.Lang "sv" }}
+
+{{/* ── HERO ── */}}
+<section class="hero">
+  {{ with (index .Site.Data.home "hero_image") }}
+  <img src="{{ . }}" alt="NORDNOVA" class="hero__bg-img" loading="eager" fetchpriority="high">
+  {{ end }}
+  <div class="hero__overlay"></div>
+  <div class="hero__content container">
+    <p class="eyebrow hero__eyebrow anim-up">
+      {{ if $isSv }}Arkitektur · Ingenjörskonst · Inredning{{ else }}Architecture · Engineering · Interior Design{{ end }}
+    </p>
+    <h1 class="hero__title anim-up d1">
+      {{ if $isSv }}
+        Vi formar <em>morgondagens</em> byggda miljö
+      {{ else }}
+        Designing <em>tomorrow's</em> built environment
+      {{ end }}
+    </h1>
+    <p class="hero__subtitle anim-up d2">
+      {{ if $isSv }}
+        NORDNOVA erbjuder arkitekttjänster, ingenjörslösningar och inredningsdesign för bostäder och kommersiella projekt i Sverige och Norden.
+      {{ else }}
+        NORDNOVA delivers architectural services, engineering solutions, and interior design for residential and commercial projects across Sweden and beyond.
+      {{ end }}
+    </p>
+    <div class="hero__actions anim-up d3">
+      <a href="{{ "/services/" | relLangURL }}" class="btn btn--primary">{{ i18n "hero_cta" }}</a>
+      <a href="{{ "/contact/" | relLangURL }}" class="btn btn--ghost">{{ i18n "hero_secondary_cta" }}</a>
+    </div>
+  </div>
+  <div class="hero__scroll" aria-hidden="true">
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+{{/* ── INTRO ── */}}
+<section class="section section--dark">
+  <div class="container">
+    <div class="grid-2" style="align-items:center;gap:5rem;">
+      <div>
+        <div class="section-header">
+          <p class="eyebrow">{{ if $isSv }}Om NORDNOVA{{ else }}About NORDNOVA{{ end }}</p>
+          <h2>
+            {{ if $isSv }}Skandinavisk precision möter global erfarenhet{{ else }}Scandinavian precision meets global experience{{ end }}
+          </h2>
+        </div>
+        <span class="divider"></span>
+        <p class="lead">
+          {{ if $isSv }}
+            Vi grundar varje projekt i gedigen teknisk kompetens, hållbarhetstänk och en djup förståelse för nordisk estetik — med erfarenhet från Europa, Malaysia och Sudan.
+          {{ else }}
+            We ground every project in solid technical competence, sustainability thinking, and a deep understanding of Nordic aesthetics — with experience spanning Europe, Malaysia, and Sudan.
+          {{ end }}
+        </p>
+        <a href="{{ "/about/" | relLangURL }}" class="btn btn--dark mt-md">{{ i18n "read_more" }}</a>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat__num">5<span>+</span></div>
+          <div class="stat__label">{{ if $isSv }}Års erfarenhet{{ else }}Years experience{{ end }}</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num">3</div>
+          <div class="stat__label">{{ if $isSv }}Kontinenter{{ else }}Continents{{ end }}</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num">4</div>
+          <div class="stat__label">{{ if $isSv }}Tjänsteområden{{ else }}Service areas{{ end }}</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num">2</div>
+          <div class="stat__label">{{ if $isSv }}Specialister{{ else }}Specialists{{ end }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ── SERVICES PREVIEW ── */}}
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">{{ i18n "our_services" }}</p>
+      <h2>{{ if $isSv }}Vad vi erbjuder{{ else }}What we offer{{ end }}</h2>
+    </div>
+    <div class="grid-3">
+      {{ $key := printf "services_%s" .Site.Language.Lang }}
+      {{ range $i, $s := (index .Site.Data $key) }}
+      <article class="service-card anim-up" style="animation-delay:{{ mul $i 120 }}ms;">
+        <div class="service-card__num">0{{ add $i 1 }}</div>
+        <h3 class="service-card__title">{{ $s.title }}</h3>
+        <p class="service-card__text">{{ $s.short }}</p>
+      </article>
+      {{ end }}
+    </div>
+    <div style="text-align:center;margin-block-start:3rem;">
+      <a href="{{ "/services/" | relLangURL }}" class="btn btn--primary">
+        {{ if $isSv }}Alla tjänster{{ else }}All services{{ end }}
+      </a>
+    </div>
+  </div>
+</section>
+
+{{/* ── PROJECTS PREVIEW ── */}}
+<section class="section section--dark">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">{{ i18n "our_projects" }}</p>
+      <h2>{{ if $isSv }}Utvalda arbeten{{ else }}Selected work{{ end }}</h2>
+    </div>
+    {{ $projects := where (where .Site.RegularPages "Section" "projects") "Lang" .Site.Language.Lang }}
+    {{ if $projects }}
+    <div class="grid-3">
+      {{ range first 3 $projects }}
+      <a href="{{ .Permalink }}" class="project-card" style="display:block;text-decoration:none;">
+        {{ with .Params.image }}
+        <img src="{{ . }}" alt="{{ $.Title }}" class="project-card__img" loading="lazy">
+        {{ else }}
+        <div class="project-card__img" style="background:var(--bg-card);width:100%;height:100%;"></div>
+        {{ end }}
+        <div class="project-card__overlay"></div>
+        <div class="project-card__info">
+          <div class="project-card__cat">{{ .Params.category }}</div>
+          <div class="project-card__title">{{ .Title }}</div>
+          <div class="project-card__loc">{{ .Params.location }}</div>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+    {{ else }}
+    <div style="text-align:center;padding:4rem;border:1px dashed var(--border);">
+      <p class="eyebrow mb-sm">{{ i18n "coming_soon" }}</p>
+      <h3>{{ i18n "projects_empty_title" }}</h3>
+    </div>
+    {{ end }}
+    <div style="text-align:center;margin-block-start:3rem;">
+      <a href="{{ "/projects/" | relLangURL }}" class="btn btn--ghost">{{ i18n "view_all_projects" }}</a>
+    </div>
+  </div>
+</section>
+
+{{/* ── CTA BAND ── */}}
+<div class="cta-band">
+  <div class="container">
+    <p class="eyebrow" style="justify-content:center;">
+      {{ if $isSv }}Redo att börja?{{ else }}Ready to start?{{ end }}
+    </p>
+    <h2>{{ if $isSv }}Låt oss diskutera ditt projekt{{ else }}Let's discuss your project{{ end }}</h2>
+    <span class="divider divider--center"></span>
+    <p>
+      {{ if $isSv }}
+        Oavsett om det gäller ett bostadsprojekt, en bygglovsansökan eller en global affärsförfrågan — vi lyssnar.
+      {{ else }}
+        Whether it's a residential build, a building permit, or a global trade inquiry — we're ready to listen.
+      {{ end }}
+    </p>
+    <a href="{{ "/contact/" | relLangURL }}" class="btn btn--primary">{{ i18n "get_in_touch" }}</a>
+  </div>
+</div>
+
+{{ end }}

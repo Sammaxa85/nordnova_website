@@ -1,0 +1,37 @@
+baseURL = "https://nordnova.se/"
+title = "NORDNOVA"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+
+[languages]
+  [languages.en]
+    languageName = "EN"
+    languageCode = "en"
+    weight = 1
+    title = "NORDNOVA"
+    [languages.en.params]
+      description = "Architecture, Engineering & Interior Design Consultancy"
+      tagline = "Designing Tomorrow's Built Environment"
+  [languages.sv]
+    languageName = "SV"
+    languageCode = "sv"
+    weight = 2
+    title = "NORDNOVA"
+    [languages.sv.params]
+      description = "Arkitektur, Ingenjörstjänster & Inredningsdesign"
+      tagline = "Vi formar morgondagens byggda miljö"
+
+[params]
+  email_sam    = "sam@nordnova.se"
+  email_khaled = "khaled@nordnova.se"
+  phone_sam    = "+46 709 360 304"
+  phone_khaled = "+46 709 360 295"
+  whatsapp     = "https://wa.me/"
+  instagram    = "https://instagram.com/nordnova"
+  linkedin     = "https://linkedin.com/company/nordnova"
+
+[outputs]
+  home    = ["HTML"]
+  page    = ["HTML"]
+  section = ["HTML"]

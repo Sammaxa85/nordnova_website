@@ -1,0 +1,14 @@
+{{ define "main" }}
+{{ $isSv := eq .Site.Language.Lang "sv" }}
+<section style="min-height:70vh;display:flex;align-items:center;padding-block-start:6rem;">
+  <div class="container" style="text-align:center;">
+    <div style="font-family:var(--font-brand);font-size:7rem;font-weight:300;color:var(--border);line-height:1;">404</div>
+    <p class="eyebrow mb-sm" style="justify-content:center;">NORDNOVA</p>
+    <h1 style="margin-block-end:1rem;">{{ if $isSv }}Sidan hittades inte{{ else }}Page not found{{ end }}</h1>
+    <p style="color:var(--text-muted);max-width:44ch;margin-inline:auto;font-size:0.85rem;margin-block-end:2.5rem;">
+      {{ if $isSv }}Sidan du letar efter finns inte eller har flyttats.{{ else }}The page you're looking for doesn't exist or has been moved.{{ end }}
+    </p>
+    <a href="/" class="btn btn--primary">{{ if $isSv }}Tillbaka till startsidan{{ else }}Back to home{{ end }}</a>
+  </div>
+</section>
+{{ end }}

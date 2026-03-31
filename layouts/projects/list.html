@@ -1,0 +1,46 @@
+{{ define "main" }}
+{{ $isSv := eq .Site.Language.Lang "sv" }}
+
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow anim-up">NORDNOVA</p>
+    <h1 class="page-hero__title anim-up d1">{{ .Title }}</h1>
+    {{ with .Params.subtitle }}<p class="page-hero__sub anim-up d2">{{ . }}</p>{{ end }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {{ $pages := where (where .Site.RegularPages "Section" "projects") "Lang" .Site.Language.Lang }}
+    {{ if $pages }}
+    <div class="grid-3">
+      {{ range $pages }}
+      <a href="{{ .Permalink }}" class="project-card" style="display:block;text-decoration:none;">
+        {{ with .Params.image }}
+        <img src="{{ . }}" alt="{{ $.Title }}" class="project-card__img" loading="lazy">
+        {{ else }}
+        <div class="project-card__img" style="background:var(--bg-card);width:100%;height:100%;position:absolute;inset:0;"></div>
+        {{ end }}
+        <div class="project-card__overlay"></div>
+        <div class="project-card__info">
+          <div class="project-card__cat">{{ .Params.category }}</div>
+          <div class="project-card__title">{{ .Title }}</div>
+          <div class="project-card__loc">{{ .Params.location }}{{ with .Params.year }} · {{ . }}{{ end }}</div>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+    {{ else }}
+    <div style="text-align:center;padding:6rem 2rem;border:1px dashed var(--border);">
+      <p class="eyebrow mb-sm">{{ i18n "coming_soon" }}</p>
+      <h2 style="margin-block-end:1rem;">{{ i18n "projects_empty_title" }}</h2>
+      <p style="color:var(--text-muted);max-width:48ch;margin-inline:auto;font-size:0.85rem;">
+        {{ i18n "projects_empty_text" }}
+      </p>
+      <a href="{{ "/contact/" | relLangURL }}" class="btn btn--primary mt-md">{{ i18n "get_in_touch" }}</a>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+{{ end }}

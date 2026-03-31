@@ -1,0 +1,78 @@
+# ══════════════════════════════════════════════════════════════
+# NORDNOVA — Services (English)
+# ══════════════════════════════════════════════════════════════
+# HOW TO EDIT:
+#   Change title, short, description, features freely.
+#   Add an image: image: /images/your-photo.jpg
+#     (place the file in static/images/)
+#   Add a service: copy any block and paste at the bottom.
+#   Remove a service: delete its block.
+# ══════════════════════════════════════════════════════════════
+
+- title: "Architectural Design"
+  category: "Architecture"
+  short: "Residential and retail architectural design from concept to permit."
+  description: >
+    We provide full architectural design services for residential homes,
+    extensions, renovations, and small-scale retail spaces. Our workflow
+    takes you from initial sketch through to complete building permit
+    documentation — ensuring every drawing meets Swedish building
+    regulations (PBL) and local municipality requirements.
+  features:
+    - Concept design and feasibility studies
+    - Building permit applications (bygglov)
+    - Technical drawings and specifications (projektering)
+    - Coordination with local authorities
+    - 3D renderings and visualisations
+  image: ""
+
+- title: "Interior Design"
+  category: "Interior Design"
+  short: "Thoughtful interiors grounded in Nordic aesthetics and function."
+  description: >
+    Drawing on years of experience at IKEA and a deep understanding of
+    Scandinavian spatial principles, we design interiors that are both
+    beautiful and genuinely liveable. We work with residential clients,
+    boutique retail spaces, and small offices — creating environments
+    where every detail serves a purpose.
+  features:
+    - Space planning and concept development
+    - Material and finish specification
+    - Furniture and lighting design
+    - 3D visualisations and mood boards
+    - Project management during fit-out
+  image: ""
+
+- title: "Structural Engineering"
+  category: "Engineering"
+  short: "Structural analysis and drawings for safe, efficient construction."
+  description: >
+    Grounded in a B.Sc. in Construction Engineering and hands-on
+    experience on industrial projects in Malaysia and Sudan, we deliver
+    structural analysis and construction drawings for residential and
+    light commercial buildings. Our calculations comply with Eurocode
+    standards and Swedish national annexes.
+  features:
+    - Structural analysis and load calculations (Eurocode)
+    - Foundation design
+    - Structural drawings for contractors
+    - Review of existing structures
+    - Collaboration with architects and contractors
+  image: ""
+
+- title: "Global Materials Sourcing"
+  category: "Trade & Agency"
+  short: "Connecting European and Middle Eastern clients with Asian manufacturers of steel and building materials."
+  description: >
+    NORDNOVA acts as a trusted intermediary between producers and
+    manufacturers of steel products and building materials in Asia, and
+    clients in Europe and the Middle East — and vice versa. We identify
+    reliable suppliers, negotiate terms, coordinate logistics, and
+    ensure quality compliance throughout the supply chain.
+  features:
+    - Supplier identification and vetting in Asia
+    - Contract negotiation and due diligence
+    - Quality assurance and inspection coordination
+    - Logistics and customs support
+    - Ongoing supplier relationship management
+  image: ""
