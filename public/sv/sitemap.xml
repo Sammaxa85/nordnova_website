@@ -2,40 +2,100 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:39967/sv/categories/</loc>
+    <loc>http://localhost:33797/sv/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:39967/categories/"
+                href="http://localhost:33797/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="sv"
-                href="http://localhost:39967/sv/categories/"
+                href="http://localhost:33797/sv/categories/"
                 />
   </url><url>
-    <loc>http://localhost:39967/sv/</loc>
+    <loc>http://localhost:33797/sv/contact/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:39967/"
+                href="http://localhost:33797/contact/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="sv"
-                href="http://localhost:39967/sv/"
+                href="http://localhost:33797/sv/contact/"
                 />
   </url><url>
-    <loc>http://localhost:39967/sv/tags/</loc>
+    <loc>http://localhost:33797/sv/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:39967/tags/"
+                href="http://localhost:33797/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="sv"
-                href="http://localhost:39967/sv/tags/"
+                href="http://localhost:33797/sv/"
+                />
+  </url><url>
+    <loc>http://localhost:33797/sv/about/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:33797/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sv"
+                href="http://localhost:33797/sv/about/"
+                />
+  </url><url>
+    <loc>http://localhost:33797/sv/projects/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:33797/projects/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sv"
+                href="http://localhost:33797/sv/projects/"
+                />
+  </url><url>
+    <loc>http://localhost:33797/sv/thanks/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:33797/thanks/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sv"
+                href="http://localhost:33797/sv/thanks/"
+                />
+  </url><url>
+    <loc>http://localhost:33797/sv/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:33797/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sv"
+                href="http://localhost:33797/sv/tags/"
+                />
+  </url><url>
+    <loc>http://localhost:33797/sv/services/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:33797/services/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sv"
+                href="http://localhost:33797/sv/services/"
                 />
   </url>
 </urlset>

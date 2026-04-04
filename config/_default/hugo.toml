@@ -10,6 +10,9 @@ enableRobotsTXT = true
     languageCode = "en"
     weight = 1
     title = "NORDNOVA"
+    default = true
+    contentDir = "content/en"
+    # url = "/"
     [languages.en.params]
       description = "Architecture, Engineering & Interior Design Consultancy"
       tagline = "Designing Tomorrow's Built Environment"
@@ -18,6 +21,7 @@ enableRobotsTXT = true
     languageCode = "sv"
     weight = 2
     title = "NORDNOVA"
+    contentDir = "content/sv"
     [languages.sv.params]
       description = "Arkitektur, Ingenjörstjänster & Inredningsdesign"
       tagline = "Vi formar morgondagens byggda miljö"
