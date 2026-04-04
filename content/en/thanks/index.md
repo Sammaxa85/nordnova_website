@@ -1,4 +1,4 @@
 ---
 title: "Thank you"
-type: "thank-you"
+type: "thanks"
 ---

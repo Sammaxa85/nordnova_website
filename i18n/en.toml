@@ -36,3 +36,13 @@ other = "Coming soon"
 other = "Portfolio in progress"
 [projects_empty_text]
 other = "Projects will be added here soon. In the meantime, get in touch to discuss your commission."
+
+
+
+
+
+[phone_label]
+other = "Phone"
+
+[subject_label]
+other = "Subject"

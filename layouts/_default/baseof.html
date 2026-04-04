@@ -1,106 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ .Site.Language.Lang }}">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.tagline }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-  <link rel="canonical" href="{{ .Permalink }}">
-  {{ range .Translations }}
-  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
-  {{ end }}
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="/css/main.css">
-  <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}">
-  <meta property="og:url" content="{{ .Permalink }}">
-  <meta property="og:type" content="website">
-</head>
-<body>
-
-{{/* ── Pure-CSS hamburger toggle — MUST be before header ── */}}
-<input type="checkbox" id="menu-toggle" class="sr-only" aria-label="Toggle menu">
-
-{{/* ── Mobile fullscreen menu ── */}}
-<nav class="nav__mobile" role="navigation" aria-label="Mobile navigation">
-  {{ $cur := . }}
-  {{ range .Site.Menus.main }}
-  <a href="{{ .URL }}" class="nav__link{{ if $cur.IsMenuCurrent "main" . }} active{{ end }}">
-    {{ .Name }}
-  </a>
-  {{ end }}
-  <div style="display:flex;gap:1rem;margin-block-start:1.5rem;align-items:center;">
-    {{ if .Translations }}
-      {{ range .Translations }}
-      <a href="{{ .Permalink }}" class="nav__lang">{{ .Language.LanguageName }}</a>
-      {{ end }}
-    {{ else }}
-      {{ if eq .Site.Language.Lang "en" }}
-      <a href="/sv/" class="nav__lang">SV</a>
-      {{ else }}
-      <a href="/" class="nav__lang">EN</a>
-      {{ end }}
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.tagline }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+    <link rel="canonical" href="{{ .Permalink }}" />
+    {{ range .Translations }}
+    <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />
     {{ end }}
-  </div>
-  <label for="menu-toggle" class="btn btn--ghost mt-sm" style="cursor:pointer;margin-block-start:2rem;">
-    {{ i18n "close_menu" }}
-  </label>
-</nav>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/css/main.css" />
+    <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    {{ partial "header.html" . }}
 
-{{/* ── Site header ── */}}
-<header class="site-header" role="banner">
-  <div class="container">
-    <nav class="nav" role="navigation" aria-label="Main navigation">
+    <main id="main-content">{{ block "main" . }}{{ end }}</main>
 
-      {{/* Logo */}}
-      <a href="{{ "/" | relLangURL }}" class="nav__logo">
-        <img src="/images/logo.svg" alt="NORDNOVA logo" class="nav__logo-img">
-             </a>
-
-      {{/* Desktop links */}}
-      <ul class="nav__links" role="list">
-        {{ $cur := . }}
-        {{ range .Site.Menus.main }}
-        <li>
-          <a href="{{ .URL }}" class="nav__link{{ if $cur.IsMenuCurrent "main" . }} active{{ end }}">
-            {{ .Name }}
-          </a>
-        </li>
-        {{ end }}
-      </ul>
-
-      {{/* Language switcher — always visible, falls back to lang root if no translation */}}
-      <div style="display:flex;align-items:center;gap:1rem;">
-        {{ if .Translations }}
-          {{ range .Translations }}
-          <a href="{{ .Permalink }}" class="nav__lang" title="Switch to {{ .Language.LanguageName }}">{{ .Language.LanguageName }}</a>
-          {{ end }}
-        {{ else }}
-          {{ if eq .Site.Language.Lang "en" }}
-          <a href="/sv/" class="nav__lang">SV</a>
-          {{ else }}
-          <a href="/" class="nav__lang">EN</a>
-          {{ end }}
-        {{ end }}
-
-        {{/* Hamburger label */}}
-        <label for="menu-toggle" class="hamburger" aria-label="Open menu">
-          <span class="hamburger__line"></span>
-          <span class="hamburger__line"></span>
-          <span class="hamburger__line"></span>
-        </label>
-      </div>
-
-    </nav>
-  </div>
-</header>
-
-<main id="main-content">
-  {{ block "main" . }}{{ end }}
-</main>
-
-{{ partial "footer.html" . }}
-
-</body>
+    {{ partial "footer.html" . }}
+  </body>
 </html>

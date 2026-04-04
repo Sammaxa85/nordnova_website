@@ -1,110 +1,76 @@
-{{ define "main" }}
-{{ $isSv := eq .Site.Language.Lang "sv" }}
-
+{{ define "main" }} {{/* Page Hero */}}
 <section class="page-hero">
   <div class="container">
     <p class="eyebrow anim-up">NORDNOVA</p>
     <h1 class="page-hero__title anim-up d1">{{ .Title }}</h1>
-    {{ with .Params.subtitle }}<p class="page-hero__sub anim-up d2">{{ . }}</p>{{ end }}
+    {{ with .Params.subtitle }}
+    <p class="page-hero__sub anim-up d2">{{ . }}</p>
+    {{ end }}
   </div>
 </section>
 
-{{/* ── About split ── */}}
+{{/* About Split Section - Only shows if content exists */}} {{ if or .Content .Params.story_title }}
 <div class="about-split">
   <div class="about-split__img-col">
-    {{/*
-      TO ADD IMAGE: put your photo in static/images/ then change the src below.
-      e.g. src="/images/office.jpg"
-    */}}
-    <img src="/images/about-placeholder.jpg" alt="NORDNOVA team" class="about-split__img" loading="lazy"
-         onerror="this.style.display='none'">
+    {{ with .Params.image }}
+    <img src="{{ . }}" alt="NORDNOVA team" class="about-split__img" loading="lazy" />
+    {{ else }}
+    <img src="/images/about-placeholder.jpg" alt="NORDNOVA team" class="about-split__img" loading="lazy" onerror="this.style.display = 'none'" />
+    {{ end }}
   </div>
   <div class="about-split__content">
-    <p class="eyebrow mb-sm">{{ if $isSv }}Vår berättelse{{ else }}Our story{{ end }}</p>
-    <h2 style="margin-block-end:1rem;">
-      {{ if $isSv }}Grundat i kompetens, drivet av vision{{ else }}Founded in competence, driven by vision{{ end }}
-    </h2>
+    {{ with .Params.story_eyebrow }}
+    <p class="eyebrow mb-sm">{{ . }}</p>
+    {{ end }} {{ with .Params.story_title }}
+    <h2 style="margin-block-end: 1rem">{{ . }}</h2>
+    {{ end }}
     <span class="divider"></span>
     <div class="lead">{{ .Content }}</div>
   </div>
 </div>
-
-{{/* ── Team ── */}}
+{{ end }} {{/* Team Section - Only shows if team members exist */}} {{ if .Params.team }}
 <section class="section section--dark">
   <div class="container">
     <div class="section-header">
-      <p class="eyebrow">{{ if $isSv }}Teamet{{ else }}The team{{ end }}</p>
-      <h2>{{ if $isSv }}Möt oss{{ else }}Meet us{{ end }}</h2>
+      <p class="eyebrow">{{ .Params.team_eyebrow }}</p>
+      <h2>{{ .Params.team_title }}</h2>
     </div>
     <div class="grid-2">
-
-      {{/* Sam */}}
+      {{ range .Params.team }}
       <article class="team-card">
         <div class="team-avatar">
-          {{/*
-            TO ADD PHOTO: replace the initials span with:
-            <img src="/images/sam.jpg" alt="Sam Abrahamsson">
-          */}}
-          <span>SA</span>
+          {{ if .avatar_image }}
+          <img src="{{ .avatar_image }}" alt="{{ .name }}" />
+          {{ else }}
+          <span>{{ .initials }}</span>
+          {{ end }}
         </div>
         <div>
-          <div class="team-name">Sam Abrahamsson</div>
-          <div class="team-role">{{ if $isSv }}Grundare · Arkitekt &amp; Ingenjör{{ else }}Founder · Architect &amp; Engineer{{ end }}</div>
-          <p class="team-bio">
-            {{ if $isSv }}
-              B.Sc. Byggingenjör (Arkitektur), Jönköpings Tekniska Högskola. M.Sc. Energieffektiv Byggd Miljö (pågående), Högskolan Dalarna. Erfarenhet från IKEA Germany, D.L Ingenjörsbyrå och industriprojekt i Malaysia och Sudan.
-            {{ else }}
-              B.Sc. Construction Engineering (Architectural), Jönköping University. M.Sc. Energy Efficient Built Environment (ongoing), Dalarna University. Experience at IKEA Germany, D.L Ingenjörsbyrå, and industrial projects in Malaysia and Sudan.
-            {{ end }}
-          </p>
-          <div class="team-contact">
-            <a href="mailto:{{ .Site.Params.email_sam }}">{{ .Site.Params.email_sam }}</a>
-            <a href="tel:{{ .Site.Params.phone_sam }}">{{ .Site.Params.phone_sam }}</a>
-          </div>
+          <div class="team-name">{{ .name }}</div>
+          <div class="team-role">{{ .role }}</div>
+          <p class="team-bio">{{ .bio | safeHTML }}</p>
+          <div class="team-contact">{{ with .email }}<a href="mailto:{{ . }}">{{ . }}</a>{{ end }} {{ with .phone }}<a href="tel:{{ . }}">{{ . }}</a>{{ end }}</div>
         </div>
       </article>
-
-      {{/* Khaled */}}
-      <article class="team-card">
-        <div class="team-avatar"><span>KH</span></div>
-        <div>
-          <div class="team-name">Khaled</div>
-          <div class="team-role">{{ if $isSv }}Medgrundare · Affärsutveckling{{ else }}Co-Founder · Business Development{{ end }}</div>
-          <p class="team-bio">
-            {{ if $isSv }}
-              Specialist inom internationell handel med stål och byggmaterial. Brobyggare mellan tillverkare i Asien och kunder i Europa och Mellanöstern.
-            {{ else }}
-              Specialist in international trade in steel products and building materials. Connecting manufacturers in Asia with clients across Europe and the Middle East.
-            {{ end }}
-          </p>
-          <div class="team-contact">
-            <a href="mailto:{{ .Site.Params.email_khaled }}">{{ .Site.Params.email_khaled }}</a>
-            <a href="tel:{{ .Site.Params.phone_khaled }}">{{ .Site.Params.phone_khaled }}</a>
-          </div>
-        </div>
-      </article>
-
+      {{ end }}
     </div>
   </div>
 </section>
-
-{{/* ── Values ── */}}
+{{ end }} {{/* Values Section - Only shows if values exist */}} {{ if .Params.values_title }}
 <section class="section">
   <div class="container">
-    <div class="section-header" style="text-align:center;">
-      <p class="eyebrow" style="justify-content:center;">{{ if $isSv }}Våra värderingar{{ else }}Our values{{ end }}</p>
+    <div class="section-header" style="text-align: center">
+      <p class="eyebrow" style="justify-content: center">{{ .Params.values_title }}</p>
     </div>
-    <div class="grid-3" style="text-align:center;">
-      {{ $key := printf "values_%s" .Site.Language.Lang }}
-      {{ range (index .Site.Data $key) }}
-      <div style="padding:2rem 1.5rem;border:1px solid var(--border);background:var(--bg-card);">
-        <div style="font-size:2rem;color:var(--bronze);margin-block-end:0.8rem;">{{ .icon }}</div>
-        <h4 style="margin-block-end:0.5rem;font-size:0.9rem;">{{ .title }}</h4>
-        <p style="font-size:0.8rem;color:var(--text-muted);">{{ .text }}</p>
+    <div class="grid-3" style="text-align: center">
+      {{ range .Params.values }}
+      <div style="padding: 2rem 1.5rem; border: 1px solid var(--border); background: var(--bg-card)">
+        <div style="font-size: 2rem; color: var(--bronze); margin-block-end: 0.8rem">{{ .icon }}</div>
+        <h4 style="margin-block-end: 0.5rem; font-size: 0.9rem">{{ .title }}</h4>
+        <p style="font-size: 0.8rem; color: var(--text-muted)">{{ .text }}</p>
       </div>
       {{ end }}
     </div>
   </div>
 </section>
-
-{{ end }}
+{{ end }} {{ end }}

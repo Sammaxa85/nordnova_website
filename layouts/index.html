@@ -1,5 +1,4 @@
 {{ define "main" }}
-{{ $isSv := eq .Site.Language.Lang "sv" }}
 
 {{/* ── HERO ── */}}
 <section class="hero">
@@ -8,23 +7,9 @@
   {{ end }}
   <div class="hero__overlay"></div>
   <div class="hero__content container">
-    <p class="eyebrow hero__eyebrow anim-up">
-      {{ if $isSv }}Arkitektur · Ingenjörskonst · Inredning{{ else }}Architecture · Engineering · Interior Design{{ end }}
-    </p>
-    <h1 class="hero__title anim-up d1">
-      {{ if $isSv }}
-        Vi formar <em>morgondagens</em> byggda miljö
-      {{ else }}
-        Designing <em>tomorrow's</em> built environment
-      {{ end }}
-    </h1>
-    <p class="hero__subtitle anim-up d2">
-      {{ if $isSv }}
-        NORDNOVA erbjuder arkitekttjänster, ingenjörslösningar och inredningsdesign för bostäder och kommersiella projekt i Sverige och Norden.
-      {{ else }}
-        NORDNOVA delivers architectural services, engineering solutions, and interior design for residential and commercial projects across Sweden and beyond.
-      {{ end }}
-    </p>
+    <p class="eyebrow hero__eyebrow anim-up">{{ .Params.hero_eyebrow }}</p>
+    <h1 class="hero__title anim-up d1">{{ .Params.hero_title | safeHTML }}</h1>
+    <p class="hero__subtitle anim-up d2">{{ .Params.hero_subtitle }}</p>
     <div class="hero__actions anim-up d3">
       <a href="{{ "/services/" | relLangURL }}" class="btn btn--primary">{{ i18n "hero_cta" }}</a>
       <a href="{{ "/contact/" | relLangURL }}" class="btn btn--ghost">{{ i18n "hero_secondary_cta" }}</a>
@@ -41,37 +26,29 @@
     <div class="grid-2" style="align-items:center;gap:5rem;">
       <div>
         <div class="section-header">
-          <p class="eyebrow">{{ if $isSv }}Om NORDNOVA{{ else }}About NORDNOVA{{ end }}</p>
-          <h2>
-            {{ if $isSv }}Skandinavisk precision möter global erfarenhet{{ else }}Scandinavian precision meets global experience{{ end }}
-          </h2>
+          <p class="eyebrow">{{ .Params.about_eyebrow }}</p>
+          <h2>{{ .Params.about_title }}</h2>
         </div>
         <span class="divider"></span>
-        <p class="lead">
-          {{ if $isSv }}
-            Vi grundar varje projekt i gedigen teknisk kompetens, hållbarhetstänk och en djup förståelse för nordisk estetik — med erfarenhet från Europa, Malaysia och Sudan.
-          {{ else }}
-            We ground every project in solid technical competence, sustainability thinking, and a deep understanding of Nordic aesthetics — with experience spanning Europe, Malaysia, and Sudan.
-          {{ end }}
-        </p>
+        <p class="lead">{{ .Params.about_text }}</p>
         <a href="{{ "/about/" | relLangURL }}" class="btn btn--dark mt-md">{{ i18n "read_more" }}</a>
       </div>
       <div class="stats">
         <div class="stat">
           <div class="stat__num">5<span>+</span></div>
-          <div class="stat__label">{{ if $isSv }}Års erfarenhet{{ else }}Years experience{{ end }}</div>
+          <div class="stat__label">{{ .Params.stat_years }}</div>
         </div>
         <div class="stat">
           <div class="stat__num">3</div>
-          <div class="stat__label">{{ if $isSv }}Kontinenter{{ else }}Continents{{ end }}</div>
+          <div class="stat__label">{{ .Params.stat_continents }}</div>
         </div>
         <div class="stat">
           <div class="stat__num">4</div>
-          <div class="stat__label">{{ if $isSv }}Tjänsteområden{{ else }}Service areas{{ end }}</div>
+          <div class="stat__label">{{ .Params.stat_services }}</div>
         </div>
         <div class="stat">
           <div class="stat__num">2</div>
-          <div class="stat__label">{{ if $isSv }}Specialister{{ else }}Specialists{{ end }}</div>
+          <div class="stat__label">{{ .Params.stat_specialists }}</div>
         </div>
       </div>
     </div>
@@ -83,7 +60,7 @@
   <div class="container">
     <div class="section-header">
       <p class="eyebrow">{{ i18n "our_services" }}</p>
-      <h2>{{ if $isSv }}Vad vi erbjuder{{ else }}What we offer{{ end }}</h2>
+      <h2>{{ .Params.services_title }}</h2>
     </div>
     <div class="grid-3">
       {{ $key := printf "services_%s" .Site.Language.Lang }}
@@ -96,9 +73,7 @@
       {{ end }}
     </div>
     <div style="text-align:center;margin-block-start:3rem;">
-      <a href="{{ "/services/" | relLangURL }}" class="btn btn--primary">
-        {{ if $isSv }}Alla tjänster{{ else }}All services{{ end }}
-      </a>
+      <a href="{{ "/services/" | relLangURL }}" class="btn btn--primary">{{ .Params.services_cta }}</a>
     </div>
   </div>
 </section>
@@ -108,7 +83,7 @@
   <div class="container">
     <div class="section-header">
       <p class="eyebrow">{{ i18n "our_projects" }}</p>
-      <h2>{{ if $isSv }}Utvalda arbeten{{ else }}Selected work{{ end }}</h2>
+      <h2>{{ .Params.projects_title }}</h2>
     </div>
     {{ $projects := where (where .Site.RegularPages "Section" "projects") "Lang" .Site.Language.Lang }}
     {{ if $projects }}
@@ -144,18 +119,10 @@
 {{/* ── CTA BAND ── */}}
 <div class="cta-band">
   <div class="container">
-    <p class="eyebrow" style="justify-content:center;">
-      {{ if $isSv }}Redo att börja?{{ else }}Ready to start?{{ end }}
-    </p>
-    <h2>{{ if $isSv }}Låt oss diskutera ditt projekt{{ else }}Let's discuss your project{{ end }}</h2>
+    <p class="eyebrow" style="justify-content:center;">{{ .Params.cta_eyebrow }}</p>
+    <h2>{{ .Params.cta_title }}</h2>
     <span class="divider divider--center"></span>
-    <p>
-      {{ if $isSv }}
-        Oavsett om det gäller ett bostadsprojekt, en bygglovsansökan eller en global affärsförfrågan — vi lyssnar.
-      {{ else }}
-        Whether it's a residential build, a building permit, or a global trade inquiry — we're ready to listen.
-      {{ end }}
-    </p>
+    <p>{{ .Params.cta_text }}</p>
     <a href="{{ "/contact/" | relLangURL }}" class="btn btn--primary">{{ i18n "get_in_touch" }}</a>
   </div>
 </div>

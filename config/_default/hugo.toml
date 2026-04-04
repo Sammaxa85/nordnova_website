@@ -35,3 +35,10 @@ enableRobotsTXT = true
   home    = ["HTML"]
   page    = ["HTML"]
   section = ["HTML"]
+
+[server]
+  disableFastRender = true
+  noHTTPCache = true
+  ignoreCache = true
+  cleanDestinationDir = true
+  # hugo server --disableFastRender --ignoreCache --noHTTPCache --cleanDestinationDir

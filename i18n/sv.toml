@@ -36,3 +36,13 @@ other = "Kommer snart"
 other = "Portfölj under uppbyggnad"
 [projects_empty_text]
 other = "Projekt läggs till här snart. Kontakta oss gärna under tiden för att diskutera ditt uppdrag."
+
+
+
+
+
+[phone_label]
+other = "Telefon"
+
+[subject_label]
+other = "Ämne"
