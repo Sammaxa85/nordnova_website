@@ -4,65 +4,59 @@
   <div class="container">
     <p class="eyebrow anim-up">NORDNOVA</p>
     <h1 class="page-hero__title anim-up d1">{{ .Title }}</h1>
-    {{ with .Params.subtitle }}<p class="page-hero__sub anim-up d2">{{ . }}</p>{{ end }}
+    {{ with .Params.subtitle }}
+    <p class="page-hero__sub anim-up d2">{{ . }}</p>
+    {{ end }}
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="contact-grid">
+    <!--<div class="contact-grid">-->
+    {{/* Left — contact details */}}
+    <div>
+      <p class="eyebrow mb-sm">{{ .Params.contact_eyebrow }}</p>
+      <h2 style="margin-block-end: 1rem">{{ .Params.contact_title }}</h2>
+      <span class="divider"></span>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-block-end: 2.5rem; line-height: 1.9">{{ .Params.contact_description }}</p>
 
-      {{/* Left — contact details */}}
-      <div>
-        <p class="eyebrow mb-sm">{{ .Params.contact_eyebrow }}</p>
-        <h2 style="margin-block-end:1rem;">{{ .Params.contact_title }}</h2>
-        <span class="divider"></span>
-        <p style="color:var(--text-muted);font-size:0.85rem;margin-block-end:2.5rem;line-height:1.9;">
-          {{ .Params.contact_description }}
-        </p>
-
-        {{/* Sam */}}
-        <div class="contact-person">
-          <div class="contact-label">{{ .Params.sam_name }}</div>
-          <div style="font-family:var(--font-brand);font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text);margin-block-end:1rem;">
-            {{ .Params.sam_role }}
-          </div>
-          <div class="contact-item">
-            <div class="contact-label">{{ i18n "email_label" }}</div>
-            <div class="contact-value"><a href="mailto:{{ .Site.Params.email_sam }}">{{ .Site.Params.email_sam }}</a></div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-label">{{ i18n "phone_label" }}</div>
-            <div class="contact-value"><a href="tel:{{ .Site.Params.phone_sam }}">{{ .Site.Params.phone_sam }}</a></div>
-          </div>
-        </div>
-
-        {{/* Khaled */}}
-        <div class="contact-person">
-          <div class="contact-label">{{ .Params.khaled_name }}</div>
-          <div style="font-family:var(--font-brand);font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text);margin-block-end:1rem;">
-            {{ .Params.khaled_role }}
-          </div>
-          <div class="contact-item">
-            <div class="contact-label">{{ i18n "email_label" }}</div>
-            <div class="contact-value"><a href="mailto:{{ .Site.Params.email_khaled }}">{{ .Site.Params.email_khaled }}</a></div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-label">{{ i18n "phone_label" }}</div>
-            <div class="contact-value"><a href="tel:{{ .Site.Params.phone_khaled }}">{{ .Site.Params.phone_khaled }}</a></div>
-          </div>
-        </div>
-
-        {{/* Office */}}
+      {{/* Sam */}}
+      <div class="contact-person">
+        <div class="contact-label">{{ .Params.sam_name }}</div>
+        <div style="font-family: var(--font-brand); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); margin-block-end: 1rem">{{ .Params.sam_role }}</div>
         <div class="contact-item">
-          <div class="contact-label">{{ i18n "office_label" }}</div>
-          <div class="contact-value">{{ .Params.office_address }}</div>
+          <div class="contact-label">{{ i18n "email_label" }}</div>
+          <div class="contact-value"><a href="mailto:{{ .Site.Params.email_sam }}">{{ .Site.Params.email_sam }}</a></div>
         </div>
-
+        <div class="contact-item">
+          <div class="contact-label">{{ i18n "phone_label" }}</div>
+          <div class="contact-value"><a href="tel:{{ .Site.Params.phone_sam }}">{{ .Site.Params.phone_sam }}</a></div>
+        </div>
       </div>
 
-      {{/* Right — form */}}
-      <div>
+      {{/* Khaled */}}
+      <div class="contact-person">
+        <div class="contact-label">{{ .Params.khaled_name }}</div>
+        <div style="font-family: var(--font-brand); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); margin-block-end: 1rem">{{ .Params.khaled_role }}</div>
+        <div class="contact-item">
+          <div class="contact-label">{{ i18n "email_label" }}</div>
+          <div class="contact-value"><a href="mailto:{{ .Site.Params.email_khaled }}">{{ .Site.Params.email_khaled }}</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">{{ i18n "phone_label" }}</div>
+          <div class="contact-value"><a href="tel:{{ .Site.Params.phone_khaled }}">{{ .Site.Params.phone_khaled }}</a></div>
+        </div>
+      </div>
+
+      {{/* Office */}}
+      <div class="contact-item">
+        <div class="contact-label">{{ i18n "office_label" }}</div>
+        <div class="contact-value">{{ .Params.office_address }}</div>
+      </div>
+    </div>
+
+    {{/* Right — form */}}
+    <!--<div>
         <p class="eyebrow mb-sm">{{ .Params.form_eyebrow }}</p>
         <h2 style="margin-block-end:2rem;">{{ .Params.form_title }}</h2>
         <form class="contact-form" method="POST" action="{{ "/thank-you/" | relLangURL }}" data-static-form-name="contact">
@@ -90,9 +84,8 @@
             {{ i18n "submit_label" }}
           </button>
         </form>
-      </div>
-
-    </div>
+      </div>-->
+    <!--</div>-->
   </div>
 </section>
 

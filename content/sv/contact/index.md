@@ -19,13 +19,13 @@ khaled_role: "Medgrundare · Affärsutveckling"
 # Office address
 office_address: "Hultsfred, Sverige"
 
-# Form section
-form_eyebrow: "Skriv till oss"
-form_title: "Berätta om ditt projekt"
+# # Form section
+# form_eyebrow: "Skriv till oss"
+# form_title: "Berätta om ditt projekt"
 
-# Form placeholders
-name_placeholder: "Ditt namn"
-email_placeholder: "din@epost.se"
-subject_placeholder: "Vad gäller det?"
-message_placeholder: "Berätta om ditt projekt…"
+# # Form placeholders
+# name_placeholder: "Ditt namn"
+# email_placeholder: "din@epost.se"
+# subject_placeholder: "Vad gäller det?"
+# message_placeholder: "Berätta om ditt projekt…"
 ---
